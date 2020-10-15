@@ -1,0 +1,45 @@
+<div fxLayout="column" style="margin-top: 3%;" 
+fxLayoutAlign="center center" fxLayoutGap="50px">
+<h1>upload a video</h1>
+
+<div *ngIf="!videoSelected">
+    <input  type="file" (change)="selectVideo($event)" #videoFile name="video" hidden accept="video/*" />
+    <button (click)="pickFile()" mat-raised-button color="primary" >
+        <mat-icon>add</mat-icon>
+        SELECT
+    </button>
+
+</div>
+
+<!--Will only show if video is selected-->
+<div [hidden]="!videoSelected">
+    <!--Video is selected but not able to get upload-->
+    <video *ngIf="!isUploaded" id="video" controls #video>
+        broweser not support it
+    </video>
+
+    <iframe *ngIf="isUploaded" [src]="url" $iframe height="222px" width="124%"
+    allowfullscreen="true" class="res-upload-video">
+
+    </iframe>
+</div>
+
+<div *ngIf="videoSelected">
+    <button *ngIf="isUploaded" mat-raised-button color="primary"
+    (click)="deleteVideo()">
+    Delete video
+    </button>
+
+    <button *ngIf="!isUploaded" mat-raised-button color="primary"
+    (click)="youtubeSubmit()">
+    Upload to youtube
+    </button>
+
+    <input  type="file" (change)="selectVideo($event)" #videoFile name="video" hidden accept="video/*" />
+    <button (click)="pickFile()" mat-raised-button color="primary" >
+        <mat-icon>add</mat-icon>
+        Change Video
+    </button>
+
+</div>
+</div>

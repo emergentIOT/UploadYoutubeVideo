@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AlertService } from './services/alert.service';
+import { UploadVideoComponent } from './components/upload-video/upload-video.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UploadVideoComponent
   ],
   imports: [
     BrowserModule,
